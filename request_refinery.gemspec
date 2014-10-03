@@ -7,11 +7,11 @@ require "request_refinery/version"
 Gem::Specification.new do |s|
   s.name        = "request_refinery"
   s.version     = RequestRefinery::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of RequestRefinery."
-  s.description = "TODO: Description of RequestRefinery."
+  s.authors     = ["Nathan Hanna"]
+  s.email       = ["jnathanhdev@gmail.com"]
+  s.homepage    = "https://github.com/jnathanh/request_refinery"
+  s.summary     = "Implements a permissions system for Rails api endpoints and devise users"
+  s.description = "Implements a permissions system for Rails api endpoints and devise users..."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
