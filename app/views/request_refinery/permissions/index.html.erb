@@ -14,7 +14,10 @@
         <td><%= permission.name %></td>
         <td><%= link_to 'Show', permission %></td>
         <td><%= link_to 'Edit', edit_permission_path(permission) %></td>
+        <% if authorized_to? :all %>
         <td><%= link_to 'Destroy', permission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <%end%>
       </tr>
     <% end %>
   </tbody>

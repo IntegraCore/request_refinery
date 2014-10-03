@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount RequestRefinery::Engine => "/request_refinery"
+  mount RequestRefinery::Engine => "/"
 end

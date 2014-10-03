@@ -227,7 +227,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -252,7 +252,7 @@ Devise.setup do |config|
   #
   # The router that invoked `devise_for`, in the example above, would be:
   config.router_name = :request_refinery
-  config.parent_controller = 'RequestRefinery::ApplicationController'
+  # config.parent_controller = 'RequestRefinery::ApplicationController'
 
   #
   # When using omniauth, Devise cannot automatically set Omniauth path,
