@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Http method:</strong>
+  <%= @controller_filter.http_method %>
+</p>
+
+<p>
+  <strong>Controller:</strong>
+  <%= @controller_filter.controller %>
+</p>
+
+<p>
+  <strong>Action name:</strong>
+  <%= @controller_filter.action_name %>
+</p>
+
+<%= link_to 'Edit', edit_controller_filter_path(@controller_filter) %> |
+<%= link_to 'Back', controller_filters_path %>

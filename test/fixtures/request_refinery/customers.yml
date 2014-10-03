@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cust_id: MyString
+  prefix: MyString
+  folder_name: MyString
+  error_email_recipients: MyString
+
+two:
+  cust_id: MyString
+  prefix: MyString
+  folder_name: MyString
+  error_email_recipients: MyString

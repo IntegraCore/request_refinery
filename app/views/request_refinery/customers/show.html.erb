@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cust:</strong>
+  <%= @customer.cust_id %>
+</p>
+
+<p>
+  <strong>Prefix:</strong>
+  <%= @customer.prefix %>
+</p>
+
+<p>
+  <strong>Folder name:</strong>
+  <%= @customer.folder_name %>
+</p>
+
+<p>
+  <strong>Error email recipients:</strong>
+  <%= @customer.error_email_recipients %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

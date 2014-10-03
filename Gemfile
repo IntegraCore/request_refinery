@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem 'debugger'
 
 # For authentication
-gem 'devise'
+# gem 'devise'
 
 # Declare your gem's dependencies in request_refinery.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and

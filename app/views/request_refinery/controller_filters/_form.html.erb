@@ -1,0 +1,29 @@
+<%= form_for(@controller_filter) do |f| %>
+  <% if @controller_filter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@controller_filter.errors.count, "error") %> prohibited this controller_filter from being saved:</h2>
+
+      <ul>
+      <% @controller_filter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :http_method %><br>
+    <%= f.text_field :http_method %>
+  </div>
+  <div class="field">
+    <%= f.label :controller %><br>
+    <%= f.text_field :controller %>
+  </div>
+  <div class="field">
+    <%= f.label :action_name %><br>
+    <%= f.text_field :action_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

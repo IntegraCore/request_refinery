@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  role_group: MyString
+  permissions: MyString
+  restrictions: MyString
+
+two:
+  role_group: MyString
+  permissions: MyString
+  restrictions: MyString
