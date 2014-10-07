@@ -16,6 +16,11 @@ Run the migrations to initialize RequestRefinery tables
 ```console
 rake db:migrate
 ```
+Add the following to your routes.rb file:
+
+```ruby
+mount RequestRefinery::Engine, at:'/'
+```
 
 If you want a basic suite of records to get you started (an admin user, basic controler filters, etc) run the install generator
 
@@ -26,23 +31,23 @@ rails generate request_refinery:install
 The generator will add the following records to your tables:
 
 Admin User:
-	email: admin@admin.fake
-	password: password
+* email: admin@admin.fake
+* password: password
 
 Permissions:
-	view
-	edit
-	create
-	delete
-	all
+* view
+* edit
+* create
+* delete
+* all
 
 Roles:
-	admin
+* admin
 
 Controller Filters:
-	GET    permissions: view
-	POST   permissions: create
-	PUT    permissions: edit
-	PATCH  permissions: edit
-	DELETE permissions: delete"
+* GET    permissions: view
+* POST   permissions: create
+* PUT    permissions: edit
+* PATCH  permissions: edit
+* DELETE permissions: delete"
 
