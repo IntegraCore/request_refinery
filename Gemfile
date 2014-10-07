@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 # To use debugger
-gem 'debugger'
+# gem 'debugger'
 
 # For authentication
 # gem 'devise'
