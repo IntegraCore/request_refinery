@@ -40,10 +40,10 @@ module RequestRefinery
 			# collect the method, controller, and action
 			# look for a matching controller filter
 			filter = RequestRefinery::ControllerFilter.where(http_method:request.method.downcase,controller:self.class.to_s,action_name:@_action_name).first
-			
+
 			# look for a http_method specific controller-wide filter (ie - the action_name will be blank) if there is not one for the method, and use that filter for the request instead
 			filter = RequestRefinery::ControllerFilter.where(http_method:request.method.downcase,controller:self.class.to_s,action_name:nil).first if filter.blank?
-			
+
 			# look for a controller-wide filter (ie - the action_name and http_method will be blank) if there is not one for the method, and use that filter for the request instead
 			filter = RequestRefinery::ControllerFilter.where(http_method:nil,controller:self.class.to_s,action_name:nil).first if filter.blank?
 
@@ -57,7 +57,7 @@ module RequestRefinery
 			# handle unauthorized request with unauthorized_request method unless authorized_to? filter.permissions
 			unauthorized_request(filter:filter) unless authorized_to? filter.permissions
 
-			puts "\n\nConfirmed that #{user.email} is authorized to #{filter.http_method.upcase}::>#{filter.controller}.#{filter.action_name}\n\n"
+			puts "\n\nConfirmed that #{user.email} is authorized to #{filter.http_method.upcase}::>#{filter.controller}.#{filter.action_name}\n\n" if authorized_to? filter.permissions
 		end
 
 		# can render any page, but a redirect will result in a redirect loop

@@ -3,6 +3,9 @@ require 'rails/generators/base'
 module RequestRefinery
 	module Generators
 		class InstallGenerator < Rails::Generators::Base
+			# include Rails::Generators::Actions::CreateMigration
+			# Mount the engine in routes.rb of the host app
+			# route "mount RequestRefinery::Engine, at:'/'"
 
 			############################################################
 			# Seed data ################################################
