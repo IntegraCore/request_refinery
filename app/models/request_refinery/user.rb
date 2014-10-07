@@ -1,4 +1,7 @@
 module RequestRefinery
+	require 'devise'
+	require_relative "../../../config/initializers/devise.rb"
+
 	class User < ActiveRecord::Base
 		# Include default devise modules. Others available are:
 		# :confirmable, :lockable, :timeoutable and :omniauthable
