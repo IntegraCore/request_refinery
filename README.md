@@ -1,5 +1,3 @@
-= RequestRefinery
-
 ## Getting started
 
 RequestRefinery 0.0.2 works with Rails 4.0 onwards. You can add it to your Gemfile with:
@@ -28,23 +26,23 @@ rails generate request_refinery:install
 The generator will add the following records to your tables:
 
 Admin User:
-	email: admin@admin.fake
-	password: password
+* email: admin@admin.fake
+* password: password
 
 Permissions:
-	view
-	edit
-	create
-	delete
-	all
+* view
+* edit
+* create
+* delete
+* all
 
 Roles:
-	admin
+* admin
 
 Controller Filters:
-	GET    permissions: view
-	POST   permissions: create
-	PUT    permissions: edit
-	PATCH  permissions: edit
-	DELETE permissions: delete"
+* GET    permissions: view
+* POST   permissions: create
+* PUT    permissions: edit
+* PATCH  permissions: edit
+* DELETE permissions: delete"
 
