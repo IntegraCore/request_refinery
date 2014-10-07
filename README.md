@@ -16,6 +16,11 @@ Run the migrations to initialize RequestRefinery tables
 ```console
 rake db:migrate
 ```
+Add the following to your routes.rb file:
+
+```ruby
+mount RequestRefinery::Engine, at:'/'
+```
 
 If you want a basic suite of records to get you started (an admin user, basic controler filters, etc) run the install generator
 
