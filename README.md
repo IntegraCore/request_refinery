@@ -1,5 +1,3 @@
-= RequestRefinery
-
 ## Getting started
 
 RequestRefinery 0.0.2 works with Rails 4.0 onwards. You can add it to your Gemfile with:
