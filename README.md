@@ -2,9 +2,9 @@
 
 RequestRefinery quickly implements 3 different systems:
 
-1. User authentication
-2. Access Control 
-2. Controller security
+1. [User authentication](#user-authentication)
+2. [Access Control](#access-control)
+2. [Controller security](#controller-security)
 
 ### User Authentication
 
