@@ -10,15 +10,9 @@ Gem::Specification.new do |s|
   s.authors     = ["Nathan Hanna"]
   s.email       = ["jnathanhdev@gmail.com"]
   s.homepage    = "https://github.com/jnathanh/request_refinery"
-  s.summary     = "Implements a permissions system for Rails api endpoints and devise users"
-  s.description = "Creates the following tables:
-                      Users
-                      Roles
-                      Permissions
-                      ControllerFilters
-                    Implements a devise authentication strategy already configured.
-                    Makes available an 'authorized_to? method in application controller that returns true if the users permissions match the given permissions/list of permissions.
-                    Implements whitelisting of all requests.  Every http request needs to have an associated ControllerFilter.  If the filter exists, then the current_user's permissions must satisfy the permissions required by the filter."
+  s.summary     = "Instant users with fully customizeable access control and controller security for Rails 4"
+
+  s.description = "This gem takes any rails 4 app and adds users/authentication (a devise implementation), access control (specify who has access to specific resources), and controller security (specify who has access to specific http methods, controllers, and controller methods).  All tables are fully namespaced and will not interfere with existing users, permissions, or roles tables."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
