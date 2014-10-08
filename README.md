@@ -33,6 +33,28 @@ end
 
 authorized_to? returns either true or false.  When you pass in more than one permission, it matches with an AND, meaning that if you pass in [:view, :edit] the user must have view permissions AND edit permissions for it to return true.
 
+### Controller Security
+By default, RequestRefinery will check every single http request that comes in and reject it if the user does not have permissions matching the rules for that type of request.  These permissions are defined by a controller filter.  A controller filter has 4 attributes:
+
+* http_method: the http method of the request (ie - GET, PUT, POST, etc)
+* controller: the name of the controller (ex: PostsController)
+* action_name: the name of the requested controller method (ie - 'index' would indicate PostsController.index)
+* permissions: what permissions are required of requests that match this filter (an array of RequestRefinery::Permission objects)
+
+These filters can have a broader scope than just a specific controller method.  For instance:
+
+Create a filter that will require all GET requests to have `:view` permissions:
+```ruby
+RequestRefinery::ControllerFilter.new(http_method:'get',permissions:[RequestRefinery::Permission.where(name:"view").first]).save
+```
+Create a filter that will require all CustomersController requests to have `:manage_customer` permissions:
+```ruby
+RequestRefinery::ControllerFilter.new(controller:'CustomersController',permissions:[RequestRefinery::Permission.where(name:"manage_customers").first]).save
+```
+Create a filter that will require all PUT requests for UsersController to have `:modify_users` permissions:
+```ruby
+RequestRefinery::ControllerFilter.new(controller:'CustomersController',http_method:"put",permissions:[RequestRefinery::Permission.where(name:"modify_users").first]).save
+```
 
 ## Getting started
 
