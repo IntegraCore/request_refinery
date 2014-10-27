@@ -1,13 +1,16 @@
 RequestRefinery::Engine.routes.draw do
-  resources :customers
 
-  resources :permissions
+	get '/admin', to:'admin#index'
 
-  resources :controller_filters
+	resources :customers
 
-  resources :roles
+	resources :permissions
 
-  devise_for :users, class_name: "RequestRefinery::User", module: :devise
+	resources :controller_filters
 
-  # root to:'permissions#index'
+	resources :roles
+
+	devise_for :users, class_name: "RequestRefinery::User", module: :devise
+
+	# root to:'permissions#index'
 end
