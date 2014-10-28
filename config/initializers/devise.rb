@@ -258,4 +258,49 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  config.warden do |manager|
+    manager.strategies.add(:active_directory, Devise::Strategies::ActiveDirectory)
+    manager.default_strategies(:scope => :user).unshift :active_directory
+  end
+
+end
+
+
+module Devise
+  module Strategies
+    class ActiveDirectory < Base
+      def authenticate!
+        user = params["user"]
+        email = user.blank? ? nil : user["email"]
+        password = user.blank? ? nil : user["password"]
+
+        fail! "Insufficient user credentials" if user.blank? || email.blank? || password.blank?
+
+        person = AD::Person.new(email,password,host:"kent.integracore.com")
+
+        if person.is_user?
+          user = get_user! email, password                      # get or create the user in the user table
+          user.update(active_directory:person.json_attributes(user_root:"cn=users,dc=integracore,dc=com",username_field:"userPrincipalName")) # resync the user's active directory properties on every login
+          success! user
+        else
+          # defer to database_authenticatable
+          fail! "Incorrect email/password combination"
+        end
+      end
+
+      def get_user! email, password
+        user = RequestRefinery::User.where(email:email).first
+
+        if user.blank?
+          user = RequestRefinery::User.create(email:email, password:password)
+          # TODO: update user info from AD
+          return user
+        else
+          # TODO: update user info from AD
+          return user
+        end
+      end
+    end
+  end
 end

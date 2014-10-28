@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20141003194717) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username",               default: "", null: false
+    t.text     "active_directory"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

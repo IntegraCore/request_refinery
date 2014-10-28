@@ -33,6 +33,7 @@ class DeviseCreateRequestRefineryUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :username, null: false, default: ""
+      t.text :active_directory
 
       t.timestamps
     end

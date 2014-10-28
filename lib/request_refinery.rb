@@ -2,6 +2,8 @@ require 'devise'
 require "request_refinery/engine"
 
 module RequestRefinery
+	mattr_accessor :config, :strategy, :active_directory
+
 	module ControllerMethods
 
 		# returns a boolean indicating whether the user has the permission/permissions in omniParam
