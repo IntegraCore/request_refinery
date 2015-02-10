@@ -7,7 +7,7 @@ RequestRefinery::Engine.routes.draw do
 
   resources :roles
 
-  #devise_for :users, class_name: "RequestRefinery::User", module: :devise
+  devise_for :users, class_name: "RequestRefinery::User", module: :devise
 
   # root to:'permissions#index'
 end
