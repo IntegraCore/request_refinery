@@ -1,5 +1,5 @@
 module RequestRefinery
-  class ApplicationController < Devise::Controllers::Helpers
+  class ApplicationController < ActionController::Base
 	before_action :authenticate_user!
 	before_action :enforce_request_permissions, except: [:unauthorized_request, :users]
 
