@@ -55,16 +55,50 @@ module RequestRefinery
 
 			# get the required permissions and user permissions
 			# handle unauthorized request with unauthorized_request method unless authorized_to? filter.permissions
+
 			unauthorized_request(filter:filter) unless authorized_to? filter.permissions
 
-			puts "\n\nConfirmed that #{user.email} is authorized to #{filter.http_method.upcase}::>#{filter.controller}.#{filter.action_name}\n\n" if authorized_to? filter.permissions
+			puts "\n\nConfirmed that #{user.email} is authorized to #{filter.http_method.upcase rescue filter.http_method}::>#{filter.controller}.#{filter.action_name}\n\n" if authorized_to? filter.permissions
 		end
 
 		# can render any page, but a redirect will result in a redirect loop
 		def unauthorized_request user:current_user,filter:nil
 			puts "\n\nNo filter matches the given http method, controller, or controller method, rerouting..." if filter.blank?
-			puts "\n\nUser #{user.email} is not authorized to #{filter.http_method.upcase}::>#{filter.controller || 'all'}.#{filter.action_name || 'all'}, rerouting...\n\n" unless filter.blank?
+			puts "\n\nUser #{user.email} is not authorized to #{filter.http_method.upcase rescue filter.http_method}::>#{filter.controller || 'all'}.#{filter.action_name || 'all'}, rerouting...\n\n" unless filter.blank?
 			render json: "Unauthorized Request"
 		end
 	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
